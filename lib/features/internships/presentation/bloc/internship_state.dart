@@ -11,7 +11,10 @@ final class InternshipFetched extends InternshipState {
   final List<InternshipEntity> internships;
 
   InternshipFetched({required this.internships});
-
 }
 
-final class InternshipFailure extends InternshipState {}
+final class InternshipFailure extends InternshipState {
+  final String error;
+
+  InternshipFailure({required this.error});
+}

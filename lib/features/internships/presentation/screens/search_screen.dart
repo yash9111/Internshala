@@ -119,17 +119,29 @@ class _SearchScreenState extends State<SearchScreen> {
                     ],
                   ),
                 )
-              : const Center(
-                  child: Text(
-                    "Unable to fetch internships,\nCheck you network",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        color: Colors.red,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        fontStyle: FontStyle.italic),
-                  ),
-                );
+              : state is InternshipFailure
+                  ? Center(
+                      child: Text(
+                        state.error,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                            color: Colors.red,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FontStyle.italic),
+                      ),
+                    )
+                  : const Center(
+                      child: Text(
+                        "Unable to fetch internships,\nCheck you network",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: Colors.red,
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FontStyle.italic),
+                      ),
+                    );
         },
       ),
     );

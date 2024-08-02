@@ -30,8 +30,8 @@ class InternshipRemoteDataSourceImpl implements InternshipRemoteDataSource {
       }
     } catch (e) {
       // Return dummy data in case of error
-      print(e.toString());
-      throw ServerException(message: "Unable to fetch");
+     
+      throw ServerException(message: e.toString());
     }
   }
 }

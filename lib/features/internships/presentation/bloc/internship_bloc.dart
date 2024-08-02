@@ -16,7 +16,7 @@ class InternshipBloc extends Bloc<InternshipEvent, InternshipState> {
       (event, emit) async {
         final res = await getAllInternshipUsecase();
         res.fold(
-          (l) => emit(InternshipFailure()),
+          (l) => emit(InternshipFailure(error: l.message)),
           (r) => emit(
             InternshipFetched(internships: r),
           ),
